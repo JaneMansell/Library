@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -22,6 +22,35 @@ const theSevenMoons = new Book(
   false
 );
 
-function addBookToLibrary() {
-  //code
+function addBookToLibrary(Book) {
+  this.Book = Book;
+  myLibrary.push(this.Book);
 }
+
+addBookToLibrary(theHobbit);
+addBookToLibrary(andAway);
+addBookToLibrary(dolphinJunction);
+addBookToLibrary(theSevenMoons);
+
+console.log(myLibrary);
+
+const container = document.querySelector('.library');
+const newBook = document.createElement('div');
+const newBookTitle = document.createElement('div');
+const newBookAuthor = document.createElement('div');
+const newBookPages = document.createElement('div');
+const newBookRead = document.createElement('div');
+newBook.classList.add('book');
+newBookTitle.classList.add('title');
+newBookAuthor.classList.add('author');
+newBookPages.classList.add('pages');
+newBookRead.classList.add('read');
+newBookTitle.textContent = 'Title of New Book';
+newBookAuthor.textContent = 'Author of New Book';
+newBookPages.textContent = 'Pages of New Book';
+newBookRead.textContent = 'read/ not read';
+newBook.appendChild(newBookTitle);
+newBook.appendChild(newBookAuthor);
+newBook.appendChild(newBookPages);
+newBook.appendChild(newBookRead);
+container.appendChild(newBook);
