@@ -1,0 +1,69 @@
+body {
+  height: 99vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.footer {
+  height: 5vh;
+  background-color: black;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #db2777;
+}
+
+.topBarTitle {
+  font-size: 6.5vh;
+}
+
+.addNewBookButton {
+  background-color: #2dd4bf;
+  border-style: none;
+  border-radius: 50px;
+  font-size: 2vh;
+  padding: 5px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.library {
+  flex: 1;
+  background-color: #fed7aa;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.book {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(90deg, #99f6e4, #db2777);
+  font-size: 18px;
+}
+
+.book .title {
+  font-size: 24px;
+}
+
+.pages,
+.read {
+  color: darkslategrey;
+}
