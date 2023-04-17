@@ -27,7 +27,7 @@ body {
   font-size: 6.5vh;
 }
 
-.addNewBookButton {
+#addNewBookButton {
   background-color: #2dd4bf;
   border-style: none;
   border-radius: 50px;
@@ -66,4 +66,37 @@ body {
 .pages,
 .read {
   color: darkslategrey;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 3vh;
+  padding: 2vh 0px;
+}
+
+input {
+  height: 4vh;
+  font-size: 3vh;
+  flex: 1;
+  margin: 10px 0 clamp(0px, 30px, 30px) 0;
+}
+
+label {
+  flex: 1;
+  margin: 10px 0 0px 0;
+}
+
+#submitButton {
+  background-color: #db2777;
+  border-style: none;
+  border-radius: 50px;
+  font-size: 2vh;
+  padding: 5px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 5vh;
+  width: 20vw;
+  align-self: center;
 }

@@ -70,3 +70,79 @@ function createLibraryDisplay() {
 }
 
 createLibraryDisplay();
+
+function createForm() {
+  const form = document.createElement('form');
+  form.action = 'https://httpbin.org/post';
+  form.method = 'post';
+
+  /* Title */
+  const labelTitle = document.createElement('label');
+  labelTitle.for = 'bookTitle';
+  labelTitle.textContent = 'Title:';
+  const inputTitle = document.createElement('input');
+  inputTitle.type = 'text';
+  inputTitle.id = 'bookTitle';
+  inputTitle.name = 'bookTitle';
+  form.appendChild(labelTitle);
+  form.appendChild(inputTitle);
+
+  /* Author */
+  const labelAuthor = document.createElement('label');
+  labelAuthor.for = 'bookAuthor';
+  labelAuthor.textContent = 'Author:';
+  const inputAuthor = document.createElement('input');
+  inputAuthor.type = 'text';
+  inputAuthor.id = 'bookAuthor';
+  inputAuthor.name = 'bookAuthor';
+  form.appendChild(labelAuthor);
+  form.appendChild(inputAuthor);
+
+  /* Number of pages */
+  const labelPages = document.createElement('label');
+  labelPages.for = 'bookPages';
+  labelPages.textContent = 'Number of Pages:';
+  const inputPages = document.createElement('input');
+  inputPages.type = 'text';
+  inputPages.id = 'bookPages';
+  inputPages.name = 'bookPages';
+  form.appendChild(labelPages);
+  form.appendChild(inputPages);
+
+  /* Read */
+  const labelRead = document.createElement('label');
+  labelRead.for = 'bookRead';
+  labelRead.textContent = 'Have you read this book?:';
+  const inputRead = document.createElement('input');
+  inputRead.type = 'text';
+  inputRead.id = 'bookRead';
+  inputRead.placeholder = 'yes or no';
+  inputRead.name = 'bookRead';
+  form.appendChild(labelRead);
+  form.appendChild(inputRead);
+
+  // Submit button
+  const submitButton = document.createElement('button');
+  submitButton.id = 'submitButton';
+  submitButton.type = 'submit';
+  submitButton.textContent = 'Submit';
+  form.appendChild(submitButton);
+
+  return form;
+}
+
+function displayForm() {
+  const container = document.querySelector('.library');
+  const books = document.querySelectorAll('.book');
+  books.forEach((book) => {
+    container.removeChild(book);
+  });
+  const form = createForm();
+  container.appendChild(form);
+}
+
+const newBookButton = document.querySelector('#addNewBookButton');
+newBookButton.addEventListener('click', () => {
+  console.log('button clicked');
+  displayForm();
+});
