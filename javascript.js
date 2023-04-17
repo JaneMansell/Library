@@ -34,23 +34,39 @@ addBookToLibrary(theSevenMoons);
 
 console.log(myLibrary);
 
-const container = document.querySelector('.library');
-const newBook = document.createElement('div');
-const newBookTitle = document.createElement('div');
-const newBookAuthor = document.createElement('div');
-const newBookPages = document.createElement('div');
-const newBookRead = document.createElement('div');
-newBook.classList.add('book');
-newBookTitle.classList.add('title');
-newBookAuthor.classList.add('author');
-newBookPages.classList.add('pages');
-newBookRead.classList.add('read');
-newBookTitle.textContent = 'Title of New Book';
-newBookAuthor.textContent = 'Author of New Book';
-newBookPages.textContent = 'Pages of New Book';
-newBookRead.textContent = 'read/ not read';
-newBook.appendChild(newBookTitle);
-newBook.appendChild(newBookAuthor);
-newBook.appendChild(newBookPages);
-newBook.appendChild(newBookRead);
-container.appendChild(newBook);
+function addBookToDisplay(title, author, pages, read) {
+  const container = document.querySelector('.library');
+  const newBook = document.createElement('div');
+  const newBookTitle = document.createElement('div');
+  const newBookAuthor = document.createElement('div');
+  const newBookPages = document.createElement('div');
+  const newBookRead = document.createElement('div');
+  newBook.classList.add('book');
+  newBookTitle.classList.add('title');
+  newBookAuthor.classList.add('author');
+  newBookPages.classList.add('pages');
+  newBookRead.classList.add('read');
+  newBookTitle.textContent = title;
+  newBookAuthor.textContent = author;
+  newBookPages.textContent = `${pages} pages`;
+  if (read === true) {
+    newBookRead.textContent = 'read';
+  } else {
+    newBookRead.textContent = 'not read';
+  }
+
+  newBook.appendChild(newBookTitle);
+  newBook.appendChild(newBookAuthor);
+  newBook.appendChild(newBookPages);
+  newBook.appendChild(newBookRead);
+  container.appendChild(newBook);
+}
+
+function createLibraryDisplay() {
+  for (const item of myLibrary) {
+    console.log(item.title);
+    addBookToDisplay(item.title, item.author, item.pages, item.read);
+  }
+}
+
+createLibraryDisplay();
