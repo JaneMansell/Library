@@ -154,6 +154,7 @@ function displayForm() {
     addBookToLibrary(newBook);
     console.log('button clicked');
     console.log(bookTitle, bookAuthor, bookPages, bookRead);
+    container.removeChild(form);
     createLibraryDisplay();
   });
 }
