@@ -1,12 +1,15 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
+const castleShade = new Book('Castle Shade', 'Laurie R. King', 376, false);
 const theHobbit = new Book('The Hobbit', 'J.R.R.Tolkein', 295, true);
 const andAway = new Book('And Away...', 'Bob Mortimer', 324, true);
 const dolphinJunction = new Book(
@@ -27,6 +30,7 @@ function addBookToLibrary(Book) {
   myLibrary.push(this.Book);
 }
 
+addBookToLibrary(castleShade);
 addBookToLibrary(theHobbit);
 addBookToLibrary(andAway);
 addBookToLibrary(dolphinJunction);
@@ -124,7 +128,7 @@ function createForm() {
   // Submit button
   const submitButton = document.createElement('button');
   submitButton.id = 'submitButton';
-  submitButton.type = 'submit';
+  submitButton.type = 'button';
   submitButton.textContent = 'Submit';
   form.appendChild(submitButton);
 
@@ -139,6 +143,19 @@ function displayForm() {
   });
   const form = createForm();
   container.appendChild(form);
+  const submitButton = document.querySelector('#submitButton');
+  submitButton.addEventListener('click', () => {
+    event.preventDefault();
+    const bookTitle = document.getElementById('bookTitle').value;
+    const bookAuthor = document.getElementById('bookAuthor').value;
+    const bookPages = document.getElementById('bookPages').value;
+    const bookRead = document.getElementById('bookRead').value;
+    const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+    addBookToLibrary(newBook);
+    console.log('button clicked');
+    console.log(bookTitle, bookAuthor, bookPages, bookRead);
+    createLibraryDisplay();
+  });
 }
 
 const newBookButton = document.querySelector('#addNewBookButton');
