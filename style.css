@@ -47,7 +47,7 @@ html {
 }
 
 body {
-  height: 99vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -123,6 +123,12 @@ form {
   justify-content: space-around;
   font-size: 3vh;
   padding: 2vh 0px;
+  background-color: #a29478c4;
+  text-align: center;
+}
+
+.book {
+  text-align: center;
 }
 
 input {
@@ -130,7 +136,17 @@ input {
   font-size: 3vh;
   flex: 1;
   margin: 10px 0 clamp(0px, 30px, 30px) 0;
-  background-color: #a29478c4;
+  background-color: #616c7f;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #a29478 inset;
+  -webkit-text-fill-color: #333;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px #616c7f inset;
+  -webkit-text-fill-color: #333;
 }
 
 label {
@@ -152,8 +168,15 @@ label {
 }
 
 a {
-  color: rgba(226, 222, 222, 0.2);
+  color: rgba(245, 245, 245, 0.5);
   font-size: smaller;
   text-decoration: none;
   text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
 }
