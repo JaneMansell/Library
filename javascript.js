@@ -38,13 +38,20 @@ addBookToLibrary(theSevenMoons);
 
 console.log(myLibrary);
 
+let instance = 0;
+
 function addBookToDisplay(title, author, pages, read) {
+  instance += 1;
+
   const container = document.querySelector('.library');
   const newBook = document.createElement('div');
   const newBookTitle = document.createElement('div');
   const newBookAuthor = document.createElement('div');
   const newBookPages = document.createElement('div');
   const newBookRead = document.createElement('div');
+  const checkbox = document.createElement('input');
+  const label = document.createElement('Label');
+
   newBook.classList.add('book');
   newBookTitle.classList.add('title');
   newBookAuthor.classList.add('author');
@@ -53,12 +60,20 @@ function addBookToDisplay(title, author, pages, read) {
   newBookTitle.textContent = title;
   newBookAuthor.textContent = author;
   newBookPages.textContent = `${pages} pages`;
+
+  checkbox.id = 'checkbox' + instance;
+  checkbox.name = 'checkbox' + instance;
+  checkbox.type = 'checkbox';
+  label.setAttribute('for', 'checkbox' + instance);
+  label.innerHTML = 'read';
   if (read === true) {
-    newBookRead.textContent = 'read';
+    checkbox.checked = true;
   } else {
-    newBookRead.textContent = 'not read';
+    checkbox.checked = false;
   }
 
+  newBookRead.appendChild(label);
+  newBookRead.appendChild(checkbox);
   newBook.appendChild(newBookTitle);
   newBook.appendChild(newBookAuthor);
   newBook.appendChild(newBookPages);
@@ -155,6 +170,7 @@ function displayForm() {
     console.log('button clicked');
     console.log(bookTitle, bookAuthor, bookPages, bookRead);
     container.removeChild(form);
+    instance = 0;
     createLibraryDisplay();
   });
 }
